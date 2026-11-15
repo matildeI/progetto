@@ -1,0 +1,375 @@
+{
+  "metadata": {
+    "titolo": "Questionario di Raccolta Requisiti - Campo di Applicazione (Scope) SGSI",
+    "normativa": "ISO/IEC 27001:2022 (Clausole 4.1, 4.2, 4.3)",
+    "versione": "1.1",
+    "lingua": "it",
+    "istruzioni": "Compilare i campi 'value' di ciascuna domanda. Tutti i 'placeholder_key' e le chiavi degli oggetti negli array corrispondono esattamente ai segnaposto {{...}} presenti nel template DOCX."
+  },
+  "sections": [
+    {
+      "section_id": "SEC_00",
+      "title": "0. Dati Generali e Intestazione Documento",
+      "description": "Informazioni anagrafiche di base per intestare e datare il documento di Scope.",
+      "questions": [
+        {
+          "id": "Q_00_1",
+          "placeholder_key": "{{ragione_sociale}}",
+          "question": "Qual è la ragione sociale esatta dell'organizzazione (come da visura camerale)?",
+          "field_type": "text",
+          "required": true,
+          "help_text": "Es. Acme Cyber S.r.l.",
+          "value": "Es. Acme Cyber S.r.l."
+        },
+        {
+          "id": "Q_00_2",
+          "placeholder_key": "{{settore_attivita}}",
+          "question": "In quale settore opera principalmente l'organizzazione e qual è la sua attività core?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Sviluppo software e soluzioni di cybersecurity per aziende enterprise.",
+          "value": "Es. Sviluppo software e soluzioni di cybersecurity per aziende enterprise."
+        },
+        {
+          "id": "Q_00_3",
+          "placeholder_key": "{{ruolo_approvatore}}",
+          "question": "Qual è il ruolo aziendale che approverà formalmente il documento di Scope?",
+          "field_type": "text",
+          "required": true,
+          "help_text": "Es. Amministratore Delegato / CEO / Direzione Generale",
+          "value": "Amministratore Delegato / CEO / Direzione Generale"
+        },
+        {
+          "id": "Q_00_4",
+          "placeholder_key": "{{data_emissione}}",
+          "question": "Qual è la data di emissione e approvazione formale del documento?",
+          "field_type": "text",
+          "required": true,
+          "help_text": "Es. 15/11/2026",
+          "value": "15/11/2026"
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_A",
+      "title": "A. Perimetro di Business e Servizi (Cosa certifichiamo?)",
+      "description": "Definizione degli obiettivi della certificazione, dei prodotti/servizi inclusi e della frase ufficiale da stampare sul certificato.",
+      "questions": [
+        {
+          "id": "Q_A1",
+          "placeholder_key": "{{motivazione_certificazione}}",
+          "question": "Qual è il motivo commerciale, strategico o normativo principale per cui l'azienda vuole certificarsi?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Richiesta di clienti enterprise, partecipazione a gare pubbliche, adeguamento NIS2/DORA, posizionamento competitivo.",
+          "value": "\"description\": \"Definizione degli obiettivi della certificazione, dei prodotti/servizi inclusi e della frase ufficiale da stampare sul certificato.\","
+        },
+        {
+          "id": "Q_A2",
+          "placeholder_key": "{{prodotti_servizi_inclusi}}",
+          "question": "Quali specifici prodotti, linee di business o servizi erogati ai clienti devono rientrare nel certificato?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Elencare nomi dei prodotti SaaS, piattaforme o servizi gestiti oggetto di certificazione.",
+          "value": "\u001b[A"
+        },
+        {
+          "id": "Q_A3",
+          "placeholder_key": "{{prodotti_servizi_esclusi}}",
+          "question": "Esistono rami d'azienda, prodotti legacy o servizi sperimentali che non verranno inclusi in questo ciclo di certificazione?",
+          "field_type": "textarea",
+          "required": false,
+          "help_text": "Indicare 'Nessuno' se tutta l'offerta aziendale è inclusa.",
+          "value": ""
+        },
+        {
+          "id": "Q_A4",
+          "placeholder_key": "{{dichiarazione_scope_certificato}}",
+          "question": "Come desiderate formulare la frase sintetica che apparirà testualmente sul certificato ISO 27001?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Progettazione, sviluppo, erogazione, manutenzione e supporto della piattaforma SaaS [Nome], inclusi i relativi processi di supporto e gestione dell'infrastruttura IT.",
+          "value": "."
+        },
+        {
+          "id": "Q_A5_1",
+          "placeholder_key": "{{processi_primari}}",
+          "question": "Quali sono i processi primari (Core Business) inclusi nel perimetro?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Analisi requisiti, progettazione, sviluppo software, testing, rilascio in produzione, erogazione servizio, assistenza clienti.",
+          "value": "."
+        },
+        {
+          "id": "Q_A5_2",
+          "placeholder_key": "{{processi_direzione}}",
+          "question": "Quali sono i processi di direzione e governance inclusi?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Pianificazione strategica, gestione dei rischi, compliance normativa, audit interni, riesame della direzione.",
+          "value": "."
+        },
+        {
+          "id": "Q_A5_3",
+          "placeholder_key": "{{processi_supporto}}",
+          "question": "Quali sono i processi di supporto inclusi nel perimetro?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Gestione infrastruttura IT/Cloud, selezione e formazione HR, acquisti e gestione fornitori, amministrazione e contrattualistica.",
+          "value": "."
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_B",
+      "title": "B. Perimetro Organizzativo (Chi è coinvolto?)",
+      "description": "Identificazione delle entità giuridiche, delle divisioni, dei dipartimenti e dei collaboratori esterni.",
+      "questions": [
+        {
+          "id": "Q_B1",
+          "placeholder_key": "{{copertura_societaria}}",
+          "question": "La certificazione riguarda l'intera ragione sociale o solo una specifica Business Unit / Divisione?",
+          "field_type": "select",
+          "options": [
+            "Intera ragione sociale",
+            "Specifica Business Unit / Divisione (specificare nelle note/esclusioni)"
+          ],
+          "required": true,
+          "value": "Intera ragione sociale"
+        },
+        {
+          "id": "Q_B2",
+          "placeholder_key": "{{struttura_gruppo_societario}}",
+          "question": "Se l'azienda fa parte di un gruppo societario (holding, controllate, consociate), quali entità sono incluse e quali funzioni condivise (es. IT, HR, Legale) operano trasversalmente?",
+          "field_type": "textarea",
+          "required": false,
+          "help_text": "Indicare 'Azienda indipendente / non parte di un gruppo' se non applicabile.",
+          "value": "."
+        },
+        {
+          "id": "Q_B3",
+          "placeholder_key": "{{unita_organizzative}}",
+          "question": "Quali dipartimenti/funzioni aziendali partecipano direttamente o indirettamente all'erogazione dei servizi in scope?",
+          "field_type": "array_of_objects",
+          "required": true,
+          "help_text": "Aggiungere un oggetto per ogni funzione aziendale presente in organigramma.",
+          "item_schema": {
+            "uo_nome": "{{uo_nome}}",
+            "uo_ruolo": "{{uo_ruolo}}",
+            "uo_inclusa": "{{uo_inclusa}}"
+          },
+          "value": [
+            {
+              "uo_nome": ".",
+              "uo_ruolo": ".",
+              "uo_inclusa": true
+            },
+            {
+              "uo_nome": "s",
+              "uo_ruolo": "s",
+              "uo_inclusa": true
+            }
+          ]
+        },
+        {
+          "id": "Q_B4",
+          "placeholder_key": "{{collaboratori_esterni}}",
+          "question": "L'azienda si avvale di collaboratori esterni, consulenti o body rental integrati nei team operativi con accesso ai sistemi aziendali?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Descrivere tipologie di collaboratori (es. sviluppatori freelance, consulenti IT) e modalità di gestione degli accessi.",
+          "value": "s"
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_C",
+      "title": "C. Perimetro Fisico e Geografico (Dove operiamo?)",
+      "description": "Mappatura delle sedi fisiche, dei data center proprietari e delle modalità di lavoro remoto.",
+      "questions": [
+        {
+          "id": "Q_C1",
+          "placeholder_key": "{{sedi_fisiche}}",
+          "question": "Quali sono tutte le sedi fisiche dell'azienda e in quali vengono trattate informazioni relative ai servizi in scope?",
+          "field_type": "array_of_objects",
+          "required": true,
+          "help_text": "Inserire sede legale, sedi operative, filiali, laboratori o data center on-premise.",
+          "item_schema": {
+            "sede_tipologia": "{{sede_tipologia}}",
+            "sede_indirizzo": "{{sede_indirizzo}}",
+            "sede_attivita": "{{sede_attivita}}",
+            "sede_inclusa": "{{sede_inclusa}}"
+          },
+          "value": [
+            {
+              "sede_tipologia": "s",
+              "sede_indirizzo": "s",
+              "sede_attivita": "s",
+              "sede_inclusa": true
+            }
+          ]
+        },
+        {
+          "id": "Q_C2_1",
+          "placeholder_key": "{{lavoro_remoto_attivo}}",
+          "question": "È previsto il lavoro da remoto (Smart Working / Full Remote)?",
+          "field_type": "boolean",
+          "required": true,
+          "value": false
+        },
+        {
+          "id": "Q_C2_2",
+          "placeholder_key": "{{lavoro_remoto_dettagli}}",
+          "question": "Se il lavoro da remoto è attivo, da quali aree geografiche è consentito (solo Italia, UE, extra-UE) e con quali modalità operative?",
+          "field_type": "textarea",
+          "required": false,
+          "help_text": "Es. Consentito su territorio nazionale/UE tramite postazioni aziendali gestite e connessione VPN.",
+          "value": "n"
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_D",
+      "title": "D. Perimetro Tecnologico e Architetturale (Su quali sistemi?)",
+      "description": "Identificazione delle infrastrutture cloud/on-premise, degli applicativi core e della segregazione di rete.",
+      "questions": [
+        {
+          "id": "Q_D1",
+          "placeholder_key": "{{infrastrutture_cloud_datacenter}}",
+          "question": "Quali sono gli ambienti infrastrutturali che ospitano i dati e i servizi in scope (Cloud pubblico AWS/Azure/GCP, server on-premise, hybrid cloud)?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Specificare provider, region geografiche (es. eu-west-1) ed eventuali sale server locali.",
+          "value": "s"
+        },
+        {
+          "id": "Q_D2",
+          "placeholder_key": "{{sistemi_applicativi_core}}",
+          "question": "Quali sono le piattaforme applicative, i database e gli strumenti di sviluppo/collaborazione essenziali per i processi inclusi?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Repository Git, pipeline CI/CD, Identity Provider/SSO, CRM, ERP, sistemi di ticketing, suite collaboration.",
+          "value": "s"
+        },
+        {
+          "id": "Q_D3",
+          "placeholder_key": "{{reti_postazioni_lavoro}}",
+          "question": "Come sono strutturate le reti aziendali e le postazioni di lavoro utilizzate dal personale in scope?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Es. Reti LAN/Wi-Fi segmentate nelle sedi, laptop aziendali gestiti tramite MDM con cifratura disco.",
+          "value": "s"
+        },
+        {
+          "id": "Q_D4",
+          "placeholder_key": "{{separazione_sistemi}}",
+          "question": "Esiste una separazione logica o fisica di rete tra i sistemi inclusi nel perimetro e quelli eventualmente esclusi?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Descrivere VLAN, account/tenant cloud separati, firewalling e gestione separata delle identità.",
+          "value": "s"
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_E",
+      "title": "E. Interfacce e Dipendenze con Terze Parti (Dove finisce il nostro controllo?)",
+      "description": "Mappatura dei fornitori in outsourcing, delle integrazioni esterne e dei servizi di supporto fisico.",
+      "questions": [
+        {
+          "id": "Q_E1",
+          "placeholder_key": "{{terze_parti_fornitori}}",
+          "question": "Quali attività o processi critici sono esternalizzati a fornitori terzi e quali interfacce tecniche esistono con clienti o partner?",
+          "field_type": "array_of_objects",
+          "required": true,
+          "help_text": "Includere Cloud Provider, MSP/SOC esterni, consulenti paghe, integrazioni API con clienti.",
+          "item_schema": {
+            "tp_nome": "{{tp_nome}}",
+            "tp_servizio": "{{tp_servizio}}",
+            "tp_controllo": "{{tp_controllo}}"
+          },
+          "value": [
+            {
+              "tp_nome": "s",
+              "tp_servizio": "s",
+              "tp_controllo": "s"
+            }
+          ]
+        },
+        {
+          "id": "Q_E2",
+          "placeholder_key": "{{servizi_supporto_fisico}}",
+          "question": "Quali servizi di supporto interno (es. pulizie, vigilanza, manutenzione impianti) hanno accesso fisico alle aree sensibili?",
+          "field_type": "textarea",
+          "required": true,
+          "help_text": "Indicare i fornitori e le regole di accesso (es. accesso solo in presenza di personale interno, registro visitatori, NDA).",
+          "value": "s"
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_F",
+      "title": "F. Contesto e Parti Interessate (Clausole 4.1 e 4.2)",
+      "description": "Analisi dei fattori interni/esterni e dei requisiti cogenti/contrattuali degli stakeholder.",
+      "questions": [
+        {
+          "id": "Q_F1",
+          "placeholder_key": "{{fattori_interni_esterni}}",
+          "question": "Quali fattori interni (es. crescita rapida, riorganizzazioni, debito tecnico) o esterni (es. minacce supply chain, evoluzioni normative/tecnologiche) influenzano i confini della sicurezza?",
+          "field_type": "textarea",
+          "required": true,
+          "value": "s"
+        },
+        {
+          "id": "Q_F2",
+          "placeholder_key": "{{stakeholder_e_requisiti_legali}}",
+          "question": "Chi sono gli stakeholder rilevanti e quali requisiti vincolanti impongono (es. GDPR, NIS2, DORA, Cyber Resilience Act, SLA contrattuali)?",
+          "field_type": "textarea",
+          "required": true,
+          "value": "s"
+        }
+      ]
+    },
+    {
+      "section_id": "SEC_G",
+      "title": "G. Esclusioni e Isolamento (Cosa resta fuori e perché?)",
+      "description": "Giustificazione formale e tecnica di eventuali aree, sedi o prodotti esclusi dal SGSI.",
+      "questions": [
+        {
+          "id": "Q_G1",
+          "placeholder_key": "{{presenza_esclusioni}}",
+          "question": "Sono previste esclusioni di sedi, rami d'azienda, prodotti o sistemi dal Campo di Applicazione?",
+          "field_type": "boolean",
+          "required": true,
+          "value": false
+        },
+        {
+          "id": "Q_G2",
+          "placeholder_key": "{{dettaglio_esclusioni}}",
+          "question": "Se sono previste esclusioni, elencare ciascun elemento escluso e la relativa motivazione.",
+          "field_type": "array_of_objects",
+          "required": false,
+          "item_schema": {
+            "excl_elemento": "{{excl_elemento}}",
+            "excl_motivazione": "{{excl_motivazione}}"
+          },
+          "value": [
+            {
+              "excl_elemento": "n",
+              "excl_motivazione": "n"
+            }
+          ]
+        },
+        {
+          "id": "Q_G3",
+          "placeholder_key": "{{giustificazione_isolamento}}",
+          "question": "Come potete dimostrare oggettivamente che una violazione di sicurezza in un'area esclusa NON può propagarsi né impattare i processi e i dati inclusi nel perimetro?",
+          "field_type": "textarea",
+          "required": false,
+          "help_text": "Descrivere l'isolamento organizzativo, logico e di rete (es. tenant separati, assenza di credenziali o reti condivise).",
+          "value": "n"
+        }
+      ]
+    }
+  ]
+}

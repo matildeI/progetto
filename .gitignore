@@ -1,0 +1,21 @@
+# Ambiente virtuale Python
+venv/
+
+# File di cache e compilazione interna di Python
+__pycache__/
+*.py[cod]
+
+# File generati da PyInstaller durante la creazione dell'eseguibile
+build/
+dist/
+*.spec
+
+# File temporanei nascosti creati da LibreOffice o Word quando il template è aperto
+~$*.docx
+.~lock.*
+
+# Configurazioni locali di Visual Studio Code
+.vscode/
+
+# Documenti generati durante i test nella cartella output
+output/*.docx

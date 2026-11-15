@@ -1,0 +1,30 @@
+[
+  {
+    "sezione": "1. DATI GENERALI ORGANIZZAZIONE",
+    "chiave": "nome_cliente",
+    "domanda": "Inserisci la ragione sociale completa dell'organizzazione",
+    "suggerimento": "Es. Acme S.r.l. (includere la forma giuridica)",
+    "tipo": "testo"
+  },
+  {
+    "sezione": "1. DATI GENERALI ORGANIZZAZIONE",
+    "chiave": "scope",
+    "domanda": "Definisci il campo di applicazione (Scope) del sistema",
+    "suggerimento": "Es. Progettazione, sviluppo ed erogazione di servizi IT presso la sede di...",
+    "tipo": "testo"
+  },
+  {
+    "sezione": "2. PARAMETRI DOCUMENTO E OPZIONI",
+    "chiave": "data_inizio",
+    "domanda": "Inserisci la data di emissione o validità",
+    "suggerimento": "Formato consigliato: GG/MM/AAAA (es. 15/11/2026)",
+    "tipo": "testo"
+  },
+  {
+    "sezione": "2. PARAMETRI DOCUMENTO E OPZIONI",
+    "chiave": "includi_clausola_extra",
+    "domanda": "Vuoi includere nel documento la sezione aggiuntiva opzionale?",
+    "suggerimento": "Digita 's' per includerla oppure 'n' per escluderla",
+    "tipo": "booleano"
+  }
+]
