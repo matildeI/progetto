@@ -1,17 +1,19 @@
 import json
-import re
-from pathlib import Path
-from docxtpl import DocxTemplate, RichText
+import re #tag formattazione
+from pathlib import Path #percorsi cartelle
+from docxtpl import DocxTemplate, RichText #compilare file docx
 from jinja2 import Template
 
 
-def formatta_testo(testo_grezzo, contesto):
-    """Sostituisce eventuali segnaposto utente nei paragrafi e applica grassetto/corsivo/sottolineato."""
-    testo_compilato = Template(testo_grezzo).render(contesto)
+def formatta_testo(testo_grezzo, contesto): 
+    #prende un singolo testo da paragrafi, non funziona.
+
+    testo_compilato = Template(testo_grezzo).render(contesto) 
 
     rt = RichText()
     tokens = re.split(r"(<b>.*?</b>|<i>.*?</i>|<u>.*?</u>)", testo_compilato, flags=re.DOTALL)
 
+    #questo solo per formattare
     for token in tokens:
         if not token:
             continue
@@ -27,8 +29,8 @@ def formatta_testo(testo_grezzo, contesto):
     return rt
 
 
-def chiedi_booleano(etichetta, required=True, valore_attuale=None):
-    default_str = "s" if valore_attuale is True else ("n" if valore_attuale is False else "")
+def chiedi_booleano(etichetta, required=True, valore_attuale=None): 
+    default_str = "s" if valore_attuale is True else ("n" if valore_attuale is False else "") 
     prompt = f"{etichetta} (s/n) [{default_str}]: " if default_str else f"{etichetta} (s/n): "
 
     while True:
@@ -82,14 +84,12 @@ def chiedi_array_oggetti(domanda_obj):
     required = domanda_obj.get("required", False)
     valori_esistenti = domanda_obj.get("value", [])
 
-    # Rileva quali sotto-campi sono booleani guardando il modello iniziale o il nome del campo
     campi_booleani = set()
     if valori_esistenti and isinstance(valori_esistenti[0], dict):
         for k, v in valori_esistenti[0].items():
             if isinstance(v, bool):
                 campi_booleani.add(k)
 
-    # Controlla se esistono già dati compilati validi (non il template vuoto)
     ha_dati_validi = any(
         any(v not in ("", None, False) for k, v in riga.items() if k not in campi_booleani)
         for riga in valori_esistenti
@@ -162,7 +162,6 @@ def esegui_questionario(schema_dati, path_dati):
             elif field_type == "array_of_objects":
                 q["value"] = chiedi_array_oggetti(q)
 
-    # Salva il JSON aggiornato con tutte le risposte dentro i campi 'value'
     with open(path_dati, "w", encoding="utf-8") as f:
         json.dump(schema_dati, f, indent=2, ensure_ascii=False)
 
@@ -175,12 +174,10 @@ def estrai_contesto_piatto(schema_dati):
     contesto = {}
     for section in schema_dati.get("sections", []):
         for q in section.get("questions", []):
-            # Rimuove le graffe da "{{ragione_sociale}}" -> "ragione_sociale"
             chiave = q["placeholder_key"].strip("{}").strip()
             valore = q.get("value")
 
             if q.get("field_type") == "array_of_objects" and isinstance(valore, list):
-                # Filtra eventuali righe rimaste completamente vuote
                 righe_pulite = [
                     riga for riga in valore
                     if any(v not in ("", None) for k, v in riga.items() if not isinstance(v, bool))
@@ -193,24 +190,53 @@ def estrai_contesto_piatto(schema_dati):
     return contesto
 
 
+def scegli_documento(dir_documenti):
+    """Mostra le sottocartelle disponibili in 'documenti/' e fa scegliere quale generare."""
+    if not dir_documenti.exists():
+        raise FileNotFoundError(f"La cartella '{dir_documenti}' non esiste. Creala e inserisci le sottocartelle dei documenti.")
+
+    cartelle = sorted([d for d in dir_documenti.iterdir() if d.is_dir()])
+    if not cartelle:
+        raise FileNotFoundError(f"Nessuna sottocartella documento trovata in: {dir_documenti}")
+
+    print("\n" + "=" * 50)
+    print(" SELEZIONA IL DOCUMENTO DA GENERARE")
+    print("=" * 50)
+    for idx, cartella in enumerate(cartelle, start=1):
+        print(f"  {idx}. {cartella.name}")
+
+    while True:
+        scelta = input("\nInserisci il numero del documento: ").strip()
+        if scelta.isdigit() and 1 <= int(scelta) <= len(cartelle):
+            return cartelle[int(scelta) - 1]
+        print(f"  -> Scelta non valida. Inserisci un numero da 1 a {len(cartelle)}.")
+
+
 def genera_documento():
     base_dir = Path.cwd()
-    path_dati = base_dir / "input" / "dati_utente.json"
-    path_paragrafi = base_dir / "input" / "paragrafi.json"
-    path_template = base_dir / "input" / "template.docx"
-    path_output = base_dir / "output" / "documento_compilato.docx"
+    dir_documenti = base_dir / "documenti"
+    path_output_dir = base_dir / "output"
 
+    #sceglie la cartella del documento selezionato
+    cartella_doc = scegli_documento(dir_documenti)
+
+    path_dati = cartella_doc / "dati_utente.json"
+    path_paragrafi = cartella_doc / "paragrafi.json"
+    path_template = cartella_doc / "template.docx"
+    path_output = path_output_dir / f"{cartella_doc.name}_compilato.docx"
+
+    # dati utente
     with open(path_dati, "r", encoding="utf-8") as f:
         schema_dati = json.load(f)
 
-    scelta = input("Vuoi compilare/modificare i dati tramite questionario guidato? [S/n]: ").strip().lower()
+    # questionario
+    scelta = input(f"\nVuoi compilare/modificare il questionario per '{cartella_doc.name}'? [S/n]: ").strip().lower()
     if scelta in ("", "s", "si", "sì"):
         schema_dati = esegui_questionario(schema_dati, path_dati)
 
-    # Estrae tutte le variabili (es. ragione_sociale, scope, sedi_fisiche, ecc.)
     dati_utente = estrai_contesto_piatto(schema_dati)
 
-    # Carica e compila paragrafi.json usando i dati raccolti
+    # paragrafi
     with open(path_paragrafi, "r", encoding="utf-8") as f:
         paragrafi_grezzi = json.load(f)
 
@@ -221,14 +247,24 @@ def genera_documento():
         else:
             paragrafi_compilati[chiave] = formatta_testo(valore, dati_utente)
 
+
     contesto_finale = {**dati_utente, **paragrafi_compilati}
 
+    # controllo segnaposto
     doc = DocxTemplate(path_template)
+    variabili_template = doc.get_undeclared_template_variables()
+    mancanti = variabili_template - set(contesto_finale.keys())
+    if mancanti:
+        print(f"\n[ATTENZIONE] Questi segnaposto nel template non sono stati trovati nei JSON: {mancanti}")
+        print(f"[INFO] Chiavi lette da paragrafi.json: {list(paragrafi_compilati.keys())}")
+        print(f"[INFO] Chiavi lette da dati_utente.json: {list(dati_utente.keys())}\n")
+
+    # salvataggio documento finale
     doc.render(contesto_finale)
 
-    path_output.parent.mkdir(parents=True, exist_ok=True)
+    path_output_dir.mkdir(parents=True, exist_ok=True)
     doc.save(path_output)
-    print(f"Documento generato con successo in: {path_output}\n")
+    print(f"\nDocumento generato con successo in: {path_output}\n")
 
 
 if __name__ == "__main__":

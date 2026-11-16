@@ -19,7 +19,7 @@
           "field_type": "text",
           "required": true,
           "help_text": "Es. Acme Cyber S.r.l.",
-          "value": "Es. Acme Cyber S.r.l."
+          "value": ""
         },
         {
           "id": "Q_00_2",
@@ -28,7 +28,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Sviluppo software e soluzioni di cybersecurity per aziende enterprise.",
-          "value": "Es. Sviluppo software e soluzioni di cybersecurity per aziende enterprise."
+          "value": ""
         },
         {
           "id": "Q_00_3",
@@ -37,7 +37,7 @@
           "field_type": "text",
           "required": true,
           "help_text": "Es. Amministratore Delegato / CEO / Direzione Generale",
-          "value": "Amministratore Delegato / CEO / Direzione Generale"
+          "value": ""
         },
         {
           "id": "Q_00_4",
@@ -45,8 +45,8 @@
           "question": "Qual è la data di emissione e approvazione formale del documento?",
           "field_type": "text",
           "required": true,
-          "help_text": "Es. 15/11/2026",
-          "value": "15/11/2026"
+          "help_text": "Es. 14/11/2026",
+          "value": ""
         }
       ]
     },
@@ -62,7 +62,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Richiesta di clienti enterprise, partecipazione a gare pubbliche, adeguamento NIS2/DORA, posizionamento competitivo.",
-          "value": "\"description\": \"Definizione degli obiettivi della certificazione, dei prodotti/servizi inclusi e della frase ufficiale da stampare sul certificato.\","
+          "value": ""
         },
         {
           "id": "Q_A2",
@@ -71,7 +71,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Elencare nomi dei prodotti SaaS, piattaforme o servizi gestiti oggetto di certificazione.",
-          "value": "\u001b[A"
+          "value": ""
         },
         {
           "id": "Q_A3",
@@ -89,7 +89,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Progettazione, sviluppo, erogazione, manutenzione e supporto della piattaforma SaaS [Nome], inclusi i relativi processi di supporto e gestione dell'infrastruttura IT.",
-          "value": "."
+          "value": ""
         },
         {
           "id": "Q_A5_1",
@@ -98,7 +98,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Analisi requisiti, progettazione, sviluppo software, testing, rilascio in produzione, erogazione servizio, assistenza clienti.",
-          "value": "."
+          "value": ""
         },
         {
           "id": "Q_A5_2",
@@ -107,7 +107,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Pianificazione strategica, gestione dei rischi, compliance normativa, audit interni, riesame della direzione.",
-          "value": "."
+          "value": ""
         },
         {
           "id": "Q_A5_3",
@@ -116,7 +116,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Gestione infrastruttura IT/Cloud, selezione e formazione HR, acquisti e gestione fornitori, amministrazione e contrattualistica.",
-          "value": "."
+          "value": ""
         }
       ]
     },
@@ -135,7 +135,7 @@
             "Specifica Business Unit / Divisione (specificare nelle note/esclusioni)"
           ],
           "required": true,
-          "value": "Intera ragione sociale"
+          "value": ""
         },
         {
           "id": "Q_B2",
@@ -144,7 +144,7 @@
           "field_type": "textarea",
           "required": false,
           "help_text": "Indicare 'Azienda indipendente / non parte di un gruppo' se non applicabile.",
-          "value": "."
+          "value": ""
         },
         {
           "id": "Q_B3",
@@ -160,13 +160,8 @@
           },
           "value": [
             {
-              "uo_nome": ".",
-              "uo_ruolo": ".",
-              "uo_inclusa": true
-            },
-            {
-              "uo_nome": "s",
-              "uo_ruolo": "s",
+              "uo_nome": "",
+              "uo_ruolo": "",
               "uo_inclusa": true
             }
           ]
@@ -178,7 +173,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Descrivere tipologie di collaboratori (es. sviluppatori freelance, consulenti IT) e modalità di gestione degli accessi.",
-          "value": "s"
+          "value": ""
         }
       ]
     },
@@ -202,9 +197,9 @@
           },
           "value": [
             {
-              "sede_tipologia": "s",
-              "sede_indirizzo": "s",
-              "sede_attivita": "s",
+              "sede_tipologia": "",
+              "sede_indirizzo": "",
+              "sede_attivita": "",
               "sede_inclusa": true
             }
           ]
@@ -215,7 +210,7 @@
           "question": "È previsto il lavoro da remoto (Smart Working / Full Remote)?",
           "field_type": "boolean",
           "required": true,
-          "value": false
+          "value": null
         },
         {
           "id": "Q_C2_2",
@@ -224,7 +219,7 @@
           "field_type": "textarea",
           "required": false,
           "help_text": "Es. Consentito su territorio nazionale/UE tramite postazioni aziendali gestite e connessione VPN.",
-          "value": "n"
+          "value": ""
         }
       ]
     },
@@ -240,7 +235,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Specificare provider, region geografiche (es. eu-west-1) ed eventuali sale server locali.",
-          "value": "s"
+          "value": ""
         },
         {
           "id": "Q_D2",
@@ -249,7 +244,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Repository Git, pipeline CI/CD, Identity Provider/SSO, CRM, ERP, sistemi di ticketing, suite collaboration.",
-          "value": "s"
+          "value": ""
         },
         {
           "id": "Q_D3",
@@ -258,7 +253,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Es. Reti LAN/Wi-Fi segmentate nelle sedi, laptop aziendali gestiti tramite MDM con cifratura disco.",
-          "value": "s"
+          "value": ""
         },
         {
           "id": "Q_D4",
@@ -267,7 +262,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Descrivere VLAN, account/tenant cloud separati, firewalling e gestione separata delle identità.",
-          "value": "s"
+          "value": ""
         }
       ]
     },
@@ -290,9 +285,9 @@
           },
           "value": [
             {
-              "tp_nome": "s",
-              "tp_servizio": "s",
-              "tp_controllo": "s"
+              "tp_nome": "",
+              "tp_servizio": "",
+              "tp_controllo": ""
             }
           ]
         },
@@ -303,7 +298,7 @@
           "field_type": "textarea",
           "required": true,
           "help_text": "Indicare i fornitori e le regole di accesso (es. accesso solo in presenza di personale interno, registro visitatori, NDA).",
-          "value": "s"
+          "value": ""
         }
       ]
     },
@@ -318,7 +313,7 @@
           "question": "Quali fattori interni (es. crescita rapida, riorganizzazioni, debito tecnico) o esterni (es. minacce supply chain, evoluzioni normative/tecnologiche) influenzano i confini della sicurezza?",
           "field_type": "textarea",
           "required": true,
-          "value": "s"
+          "value": ""
         },
         {
           "id": "Q_F2",
@@ -326,7 +321,7 @@
           "question": "Chi sono gli stakeholder rilevanti e quali requisiti vincolanti impongono (es. GDPR, NIS2, DORA, Cyber Resilience Act, SLA contrattuali)?",
           "field_type": "textarea",
           "required": true,
-          "value": "s"
+          "value": ""
         }
       ]
     },
@@ -341,7 +336,7 @@
           "question": "Sono previste esclusioni di sedi, rami d'azienda, prodotti o sistemi dal Campo di Applicazione?",
           "field_type": "boolean",
           "required": true,
-          "value": false
+          "value": null
         },
         {
           "id": "Q_G2",
@@ -355,8 +350,8 @@
           },
           "value": [
             {
-              "excl_elemento": "n",
-              "excl_motivazione": "n"
+              "excl_elemento": "",
+              "excl_motivazione": ""
             }
           ]
         },
@@ -367,7 +362,7 @@
           "field_type": "textarea",
           "required": false,
           "help_text": "Descrivere l'isolamento organizzativo, logico e di rete (es. tenant separati, assenza di credenziali o reti condivise).",
-          "value": "n"
+          "value": ""
         }
       ]
     }

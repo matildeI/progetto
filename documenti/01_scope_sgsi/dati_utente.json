@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "titolo": "Scope del Sistema di Gestione per la Sicurezza delle Informazioni (SGSI)",
+    "norma": "ISO/IEC 27001:2022",
+    "versione": "1.0"
+  },
+  "sections": [
+    {
+      "id": "sec_1",
+      "title": "1. Dati Generali dell'Organizzazione",
+      "description": "Informazioni anagrafiche e di contesto dell'azienda.",
+      "questions": [
+        {
+          "id": "Q1.1",
+          "question": "Qual è la ragione sociale completa dell'organizzazione?",
+          "help_text": "Es. Acme Cyber S.r.l.",
+          "placeholder_key": "{{ragione_sociale}}",
+          "field_type": "text",
+          "required": true,
+          "value": ""
+        },
+        {
+          "id": "Q1.2",
+          "question": "Qual è il settore di attività e il core business dell'azienda?",
+          "help_text": "Descrivi brevemente i prodotti o servizi erogati.",
+          "placeholder_key": "{{descrizione_attivita}}",
+          "field_type": "textarea",
+          "required": true,
+          "value": ""
+        },
+        {
+          "id": "Q1.3",
+          "question": "Chi è il referente o responsabile del SGSI?",
+          "help_text": "Nome, cognome e ruolo aziendale (es. Mario Rossi - CISO).",
+          "placeholder_key": "{{referente_sgsi}}",
+          "field_type": "text",
+          "required": true,
+          "value": ""
+        },
+        {
+          "id": "Q1.4",
+          "question": "Data di emissione o revisione del documento",
+          "help_text": "Formato GG/MM/AAAA",
+          "placeholder_key": "{{data_emissione}}",
+          "field_type": "text",
+          "required": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "sec_2",
+      "title": "2. Perimetro del SGSI (Scope)",
+      "description": "Definizione dei confini logici, organizzativi e funzionali.",
+      "questions": [
+        {
+          "id": "Q2.1",
+          "question": "Qual è la formulazione ufficiale dello Scope (campo di applicazione) del SGSI?",
+          "help_text": "Es. Progettazione, sviluppo ed erogazione di servizi cloud gestiti...",
+          "placeholder_key": "{{scope}}",
+          "field_type": "textarea",
+          "required": true,
+          "value": ""
+        },
+        {
+          "id": "Q2.2",
+          "question": "Inserisci le Unità Organizzative / Funzioni aziendali",
+          "help_text": "Indica ogni reparto, il ruolo svolto e se rientra nel perimetro SGSI.",
+          "placeholder_key": "{{unita_organizzative}}",
+          "field_type": "array_of_objects",
+          "required": true,
+          "item_schema": {
+            "uo_nome": "Nome unità organizzativa",
+            "uo_ruolo": "Ruolo e processi gestiti",
+            "uo_inclusa": "Inclusa nel perimetro (true/false)"
+          },
+          "value": [
+            {
+              "uo_nome": "",
+              "uo_ruolo": "",
+              "uo_inclusa": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_3",
+      "title": "3. Sedi Fisiche e Infrastrutture",
+      "description": "Elenco delle sedi operative, uffici e datacenter.",
+      "questions": [
+        {
+          "id": "Q3.1",
+          "question": "Inserisci le sedi fisiche dell'organizzazione",
+          "help_text": "Specifica tipologia (Sede legale, Operativa, Datacenter), indirizzo, attività e inclusione.",
+          "placeholder_key": "{{sedi_fisiche}}",
+          "field_type": "array_of_objects",
+          "required": true,
+          "item_schema": {
+            "sede_tipologia": "Tipologia sede",
+            "sede_indirizzo": "Indirizzo completo",
+            "sede_attivita": "Attività svolte nella sede",
+            "sede_inclusa": "Inclusa nel perimetro (true/false)"
+          },
+          "value": [
+            {
+              "sede_tipologia": "",
+              "sede_indirizzo": "",
+              "sede_attivita": "",
+              "sede_inclusa": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_4",
+      "title": "4. Interfacce e Dipendenze da Terze Parti",
+      "description": "Fornitori esterni, outsourcer e partner che interagiscono con il SGSI.",
+      "questions": [
+        {
+          "id": "Q4.1",
+          "question": "Inserisci i fornitori e le terze parti critiche",
+          "help_text": "Indica nome fornitore, servizio erogato e modalità di controllo.",
+          "placeholder_key": "{{terze_parti_fornitori}}",
+          "field_type": "array_of_objects",
+          "required": false,
+          "item_schema": {
+            "tp_nome": "Nome fornitore / terza parte",
+            "tp_servizio": "Servizio o processo esternalizzato",
+            "tp_controllo": "Misura di controllo applicata (es. SLA, NDA, Audit)"
+          },
+          "value": [
+            {
+              "tp_nome": "",
+              "tp_servizio": "",
+              "tp_controllo": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sec_5",
+      "title": "5. Esclusioni dal Perimetro",
+      "description": "Eventuali aree, sedi o processi esclusi dal campo di applicazione.",
+      "questions": [
+        {
+          "id": "Q5.1",
+          "question": "Sono presenti esclusioni specifiche dal perimetro del SGSI?",
+          "help_text": "Rispondi 's' se esistono aree o processi esclusi da giustificare.",
+          "placeholder_key": "{{ha_esclusioni}}",
+          "field_type": "boolean",
+          "required": true,
+          "value": null
+        },
+        {
+          "id": "Q5.2",
+          "question": "Dettaglio degli elementi esclusi e relativa giustificazione",
+          "help_text": "Compila solo se hai risposto 's' alla domanda precedente.",
+          "placeholder_key": "{{dettaglio_esclusioni}}",
+          "field_type": "array_of_objects",
+          "required": false,
+          "item_schema": {
+            "excl_elemento": "Elemento / area esclusa",
+            "excl_motivazione": "Giustificazione dell'esclusione"
+          },
+          "value": [
+            {
+              "excl_elemento": "",
+              "excl_motivazione": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

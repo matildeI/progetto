@@ -1,5 +1,6 @@
 # Ambiente virtuale Python
 venv/
+.venv/
 
 # File di cache e compilazione interna di Python
 __pycache__/
